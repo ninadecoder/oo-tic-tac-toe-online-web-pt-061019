@@ -72,6 +72,17 @@ end
   end
   
   def over?
-    
+    draw? || won?
   end
-end
+
+  def winner
+    if grand_winner = won?
+      @board[grand_winner.first]
+    end
+  end
+
+  def play
+    turn until over?
+      puts winner ? "Congratulations #{winner}!" : "Cat's Game!"
+    end
+  end
